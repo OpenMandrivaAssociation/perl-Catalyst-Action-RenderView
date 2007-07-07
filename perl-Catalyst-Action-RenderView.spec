@@ -18,7 +18,7 @@ Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%{module}-%{
 BuildRequires:	perl-devel
 %endif
 BuildRequires:	perl(Catalyst) >= 5.70
-BuildRequires:	perl(Module::Build)
+BuildRequires:	perl(Module::Install)
 Requires:	perl-Catalyst >= 5.70
 BuildArch:	noarch
 Buildroot:	%{_tmppath}/%{name}-buildroot
@@ -37,7 +37,7 @@ the 'default_view' config setting (See view in Catalyst.)
 %setup -q -n %{module}-%{version}
 
 %build
-%__perl Build.PL installdirs=vendor
+%__perl Makefile.PL installdirs=vendor
 ./Build
 
 %check
@@ -55,4 +55,3 @@ the 'default_view' config setting (See view in Catalyst.)
 
 %clean
 rm -rf %{buildroot}
-
