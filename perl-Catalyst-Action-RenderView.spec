@@ -2,7 +2,7 @@
 %define name	perl-%{module}
 %define	modprefix Catalyst
 
-%define version	0.04
+%define version	0.05
 
 %define release	%mkrel 1
 
