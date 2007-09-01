@@ -1,27 +1,22 @@
 %define module	Catalyst-Action-RenderView
 %define name	perl-%{module}
 %define	modprefix Catalyst
-
-%define version	0.05
-
+%define version	0.06
 %define release	%mkrel 1
 
-Summary:	Sensible default end action
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
+Summary:	Sensible default end action
 License:	Artistic/GPL
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{module}/
 Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%{module}-%{version}.tar.bz2
-%if %{mdkversion} < 1010
-BuildRequires:	perl-devel
-%endif
 BuildRequires:	perl(Catalyst) >= 5.70
 BuildRequires:	perl(Module::Install)
 Requires:	perl-Catalyst >= 5.70
 BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-buildroot
+Buildroot:	%{_tmppath}/%{name}-%{release}
 
 %description
 This action implements a sensible default end action, which will
@@ -38,14 +33,14 @@ the 'default_view' config setting (See view in Catalyst.)
 
 %build
 %__perl Makefile.PL installdirs=vendor
-./Build
+%make
 
 %check
-./Build test
+make test
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-./Build install destdir=%{buildroot}
+rm -rf %{buildroot}
+%makeinstall_std
 
 %files
 %defattr(-,root,root)
