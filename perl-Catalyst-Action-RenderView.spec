@@ -14,6 +14,7 @@ URL:		http://search.cpan.org/dist/%{module}/
 Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%{module}-%{version}.tar.bz2
 BuildRequires:	perl(Catalyst) >= 5.70
 BuildRequires:	perl(Module::Install)
+BuildRequires:	perl(Data::Visitor)
 Requires:	perl-Catalyst >= 5.70
 BuildArch:	noarch
 Buildroot:	%{_tmppath}/%{name}-%{release}
@@ -32,7 +33,7 @@ the 'default_view' config setting (See view in Catalyst.)
 %setup -q -n %{module}-%{version}
 
 %build
-%__perl Makefile.PL installdirs=vendor
+%__perl Makefile.PL installdirs=vendor --skipdeps
 %make
 
 %check
