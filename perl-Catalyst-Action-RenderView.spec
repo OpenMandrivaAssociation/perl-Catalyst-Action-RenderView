@@ -17,7 +17,6 @@ BuildRequires:	perl(Module::Install)
 BuildRequires:	perl(Data::Visitor)
 Requires:	perl-Catalyst >= 5.70
 BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-%{release}
 
 %description
 This action implements a sensible default end action, which will
