@@ -1,7 +1,7 @@
 %define module	Catalyst-Action-RenderView
 %define name	perl-%{module}
 %define	modprefix Catalyst
-%define version	0.07
+%define version	0.08
 %define release	%mkrel 1
 
 Name:		%{name}
