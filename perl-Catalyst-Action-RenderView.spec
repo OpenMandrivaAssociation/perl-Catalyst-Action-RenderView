@@ -2,7 +2,7 @@
 %define name	perl-%{module}
 %define	modprefix Catalyst
 %define version	0.08
-%define release	%mkrel 1
+%define release	%mkrel 2
 
 Name:		%{name}
 Version:	%{version}
@@ -16,6 +16,7 @@ BuildRequires:	perl(Catalyst) >= 5.70
 BuildRequires:	perl(Module::Install)
 BuildRequires:	perl(Data::Visitor)
 Requires:	perl-Catalyst >= 5.70
+Requires:   perl-namespace-clean
 BuildArch:	noarch
 Buildroot:	%{_tmppath}/%{name}-%{release}
 
@@ -27,7 +28,6 @@ the url in order to force a debug screen, while in debug mode.
 
 If you have more than 1 view, you can specify which one to use with
 the 'default_view' config setting (See view in Catalyst.)
-
 
 %prep
 %setup -q -n %{module}-%{version}
