@@ -17,6 +17,7 @@ BuildRequires:	perl(Module::Install)
 BuildRequires:	perl(Data::Visitor)
 Requires:	perl-Catalyst >= 5.70
 Requires:   perl-namespace-clean
+BuildRequires:   perl-namespace-clean
 BuildArch:	noarch
 Buildroot:	%{_tmppath}/%{name}-%{release}
 
