@@ -15,9 +15,10 @@ Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%{module}-%{
 BuildRequires:	perl(Catalyst) >= 5.70
 BuildRequires:	perl(Module::Install)
 BuildRequires:	perl(Data::Visitor)
+BuildRequires:	perl(MRO::Compat)
+BuildRequires:   perl-namespace-clean
 Requires:	perl-Catalyst >= 5.70
 Requires:   perl-namespace-clean
-BuildRequires:   perl-namespace-clean
 BuildArch:	noarch
 Buildroot:	%{_tmppath}/%{name}-%{release}
 
