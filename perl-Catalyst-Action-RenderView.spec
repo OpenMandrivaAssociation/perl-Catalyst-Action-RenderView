@@ -14,6 +14,7 @@ URL:		http://search.cpan.org/dist/%{module}/
 Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%{module}-%{version}.tar.bz2
 BuildRequires:	perl(Catalyst) >= 5.70
 BuildRequires:	perl(Module::Install)
+BuildRequires:	perl(Mouse)
 BuildRequires:	perl(Data::Visitor)
 BuildRequires:	perl(MRO::Compat)
 BuildRequires:   perl-namespace-clean
