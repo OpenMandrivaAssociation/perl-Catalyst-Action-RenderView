@@ -17,6 +17,7 @@ BuildRequires:	perl(Module::Install)
 BuildRequires:	perl(Mouse)
 BuildRequires:	perl(Data::Visitor)
 BuildRequires:	perl(MRO::Compat)
+BuildRequires:	perl(HTTP::Request::AsCGI)
 BuildRequires:   perl-namespace-clean
 Requires:	perl-Catalyst >= 5.70
 Requires:   perl-namespace-clean
