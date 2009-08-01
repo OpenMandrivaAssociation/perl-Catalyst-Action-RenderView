@@ -1,17 +1,16 @@
-%define module	Catalyst-Action-RenderView
-%define name	perl-%{module}
-%define	modprefix Catalyst
-%define version	0.11
-%define release	%mkrel 1
+%define upstream_name	 Catalyst-Action-RenderView
+%define upstream_version 0.11
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Sensible default end action
 License:	Artistic/GPL
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}/
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%{module}-%{version}.tar.bz2
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires:	perl(Catalyst) >= 5.70
 BuildRequires:	perl(Module::Install)
 BuildRequires:	perl(Mouse)
@@ -19,10 +18,10 @@ BuildRequires:	perl(Data::Visitor)
 BuildRequires:	perl(MRO::Compat)
 BuildRequires:	perl(HTTP::Request::AsCGI)
 BuildRequires:   perl-namespace-clean
+BuildArch:	noarch
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
 Requires:	perl-Catalyst >= 5.70
 Requires:   perl-namespace-clean
-BuildArch:	noarch
-Buildroot:	%{_tmppath}/%{name}-%{release}
 
 %description
 This action implements a sensible default end action, which will
@@ -34,7 +33,7 @@ If you have more than 1 view, you can specify which one to use with
 the 'default_view' config setting (See view in Catalyst.)
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %__perl Makefile.PL installdirs=vendor --skipdeps
@@ -47,11 +46,11 @@ make test
 rm -rf %{buildroot}
 %makeinstall_std
 
+%clean
+rm -rf %{buildroot}
+
 %files
 %defattr(-,root,root)
 %doc Changes README
 %{_mandir}/*/*
-%{perl_vendorlib}/%{modprefix}
-
-%clean
-rm -rf %{buildroot}
+%{perl_vendorlib}/Catalyst
