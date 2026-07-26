@@ -1,15 +1,13 @@
 %define upstream_name	 Catalyst-Action-RenderView
-%define upstream_version 0.16
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Version:	0.16
+Release:	6
 
 Summary:	Sensible default end action
 License:	Artistic/GPL
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}/
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}/
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -34,7 +32,7 @@ If you have more than 1 view, you can specify which one to use with
 the 'default_view' config setting (See view in Catalyst.)
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL installdirs=vendor --skipdeps
@@ -75,9 +73,7 @@ make test
 
 * Sat Aug 01 2009 Jérôme Quelin <jquelin@mandriva.org> 0.110.0-1mdv2010.0
 + Revision: 406258
-- rebuild using %%perl_convert_version
-
-* Mon Jun 29 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.11-1mdv2010.0
+- rebuild using %0.16 Mon Jun 29 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.11-1mdv2010.0
 + Revision: 390740
 - update to new version 0.11
 
